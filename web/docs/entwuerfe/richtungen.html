@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Permanent+Marker&family=Karla:wght@400;600;800&family=DM+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Archivo:wdth,wght@75..100,400;75..100,600;75..100,800&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;font-family:system-ui}
+.phone{width:390px;height:844px;overflow:hidden;position:relative}
+.nav{position:absolute;left:0;right:0;bottom:0;height:70px;display:flex;justify-content:space-around;align-items:center}
+
+/* ===== A · Hochzeitszeitung ===== */
+#a{background:#ECEAE4;color:#141414;font-family:'Source Serif 4',serif}
+#a .mast{padding:18px 18px 10px;border-bottom:3px solid #141414}
+#a .mast small{display:flex;justify-content:space-between;font:600 10px 'Archivo',sans-serif;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid #141414;padding-bottom:6px}
+#a .mast h1{font:400 64px/0.9 'Anton',sans-serif;text-transform:uppercase;letter-spacing:-.5px;margin:10px 0 4px}
+#a .mast h1 span{color:#D7261E}
+#a .mast p{font:italic 400 14px 'Source Serif 4'}
+#a .ticker{background:#D7261E;color:#fff;font:600 13px 'Archivo',sans-serif;padding:8px 18px;letter-spacing:.02em}
+#a .cols{display:grid;grid-template-columns:1.25fr 1fr;gap:0;padding:14px 18px;border-bottom:1px solid #141414}
+#a .cols>div:first-child{padding-right:14px;border-right:1px solid #141414}
+#a .cols>div:last-child{padding-left:14px}
+#a h2{font:400 26px/1 'Anton',sans-serif;text-transform:uppercase;margin-bottom:6px}
+#a .lead{font-size:14px;line-height:1.4}
+#a .big{font:400 72px/0.85 'Anton',sans-serif;color:#D7261E}
+#a .kl{font:600 10px 'Archivo';text-transform:uppercase;letter-spacing:.08em}
+#a .btn{display:inline-block;margin-top:10px;background:#141414;color:#ECEAE4;font:600 13px 'Archivo';padding:9px 12px;text-transform:uppercase;letter-spacing:.04em}
+#a .res{display:grid;grid-template-columns:1fr 1fr;padding:0 18px}
+#a .res div{border-bottom:1px solid #141414;padding:12px 0;font:400 22px 'Anton';text-transform:uppercase;display:flex;justify-content:space-between}
+#a .res div:nth-child(odd){border-right:1px solid #141414;padding-right:12px}
+#a .res div:nth-child(even){padding-left:12px}
+#a .res i{font:italic 400 12px 'Source Serif 4';text-transform:none;color:#555;align-self:end}
+#a .nav{background:#141414;color:#ECEAE4;font:600 11px 'Archivo';text-transform:uppercase;letter-spacing:.06em}
+#a .nav b{color:#D7261E}
+
+/* ===== B · Sofortbild ===== */
+#b{background:#F7F7F5;color:#1C1C1C;font-family:'Karla',sans-serif}
+#b .top{padding:22px 20px 0;display:flex;justify-content:space-between;align-items:flex-start}
+#b .date{font:500 12px 'DM Mono';line-height:1.5}
+#b .polas{position:relative;height:300px;margin-top:6px}
+#b .pola{position:absolute;background:#fff;padding:10px 10px 38px;border:1px solid #ddd}
+#b .pola .img{width:170px;height:170px}
+#b .pola span{position:absolute;left:12px;bottom:8px;font:400 19px 'Permanent Marker',cursive}
+#b .p1{left:22px;top:30px;transform:rotate(-5deg)}
+#b .p1 .img{background:linear-gradient(160deg,#9ec5e8,#f2c9a8)}
+#b .p2{left:178px;top:58px;transform:rotate(6deg)}
+#b .p2 .img{background:linear-gradient(200deg,#f7d36b,#e8846b)}
+#b .tape{position:absolute;width:70px;height:22px;background:#FFE14D;opacity:.9;top:-10px;left:50px;transform:rotate(-8deg)}
+#b h1{font:400 40px/1 'Permanent Marker',cursive;padding:0 20px;margin-top:4px}
+#b .live{margin:14px 20px 0;display:flex;gap:10px;align-items:center;font:500 13px 'DM Mono'}
+#b .live i{width:10px;height:10px;background:#FF3B30;border-radius:50%}
+#b .rsvp{margin:14px 20px 0;border:2px solid #1C1C1C;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
+#b .rsvp b{font-weight:800}
+#b .stamp{font:400 15px 'Permanent Marker';color:#2346E8;border:2px solid #2346E8;padding:2px 8px;transform:rotate(-6deg)}
+#b .tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 20px 0}
+#b .tiles div{background:#1C1C1C;color:#fff;padding:14px;font-weight:800;font-size:15px;display:flex;justify-content:space-between}
+#b .tiles div:first-child{background:#2346E8}
+#b .tiles small{font:500 11px 'DM Mono';opacity:.7}
+#b .nav{border-top:2px solid #1C1C1C;background:#F7F7F5;font:500 11px 'DM Mono'}
+#b .nav b{background:#FFE14D;padding:3px 6px}
+
+/* ===== C · Konfetti-Pop ===== */
+#c{background:#FF5A36;color:#1A1033;font-family:'Bricolage Grotesque',sans-serif}
+#c .hero{padding:26px 22px 22px;position:relative}
+#c .hero small{font-weight:700;font-size:13px;background:#1A1033;color:#FFE27A;padding:5px 10px;border-radius:99px}
+#c h1{font-weight:800;font-size:58px;line-height:.92;letter-spacing:-2px;margin-top:16px;color:#FFF4E8}
+#c h1 em{font-style:normal;color:#1A1033}
+#c .dots{position:absolute;right:18px;top:24px;width:90px;height:90px}
+#c .sheet{background:#FFF4E8;border-radius:30px 30px 0 0;position:absolute;left:0;right:0;top:300px;bottom:0;padding:22px}
+#c .live{background:#2D3FE0;color:#fff;border-radius:18px;padding:14px 16px;font-weight:700;font-size:17px;display:flex;justify-content:space-between;align-items:center}
+#c .live span{background:#FFE27A;color:#1A1033;font-size:12px;padding:3px 8px;border-radius:99px}
+#c .row{display:flex;gap:10px;margin-top:12px}
+#c .ok{flex:1;background:#7BE0AD;border-radius:18px;padding:14px;font-weight:700}
+#c .ok small{display:block;font-weight:400;font-size:12px}
+#c .cd{width:120px;background:#1A1033;color:#FFE27A;border-radius:18px;padding:12px;text-align:center}
+#c .cd b{display:block;font-size:40px;line-height:1;font-weight:800}
+#c .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+#c .chips span{border:2px solid #1A1033;border-radius:99px;padding:9px 14px;font-weight:700;font-size:15px}
+#c .chips span:nth-child(1){background:#FFE27A}
+#c .nav{background:#1A1033;color:#FFF4E8;font-weight:700;font-size:12px;border-radius:24px;left:14px;right:14px;bottom:12px;height:58px}
+#c .nav b{color:#FF5A36}
+
+/* ===== D · Standesamt ===== */
+#d{background:#FFFFFF;color:#111;font-family:'Archivo',sans-serif}
+#d .head{display:grid;grid-template-columns:1fr auto;border-bottom:2px solid #111;padding:16px 18px 12px}
+#d .head small{font:400 10px 'IBM Plex Mono';letter-spacing:.04em}
+#d .head h1{font:800 34px/1 'Archivo';font-stretch:75%;text-transform:uppercase;letter-spacing:-.5px;margin-top:6px}
+#d .reg{border:2px solid #111;align-self:start;text-align:center;padding:6px 8px;font:600 10px 'IBM Plex Mono'}
+#d .reg b{display:block;font:800 22px 'Archivo';font-stretch:75%}
+#d .field{border-bottom:1px solid #111;padding:10px 18px;display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:baseline}
+#d .field label{font:400 10px 'IBM Plex Mono';text-transform:uppercase;letter-spacing:.06em;color:#555}
+#d .field div{font-size:16px;font-weight:600}
+#d .board{background:#0E4D3A;color:#fff;margin:14px 18px 0;font:400 13px 'IBM Plex Mono'}
+#d .board .h{display:grid;grid-template-columns:60px 1fr 70px;padding:6px 10px;border-bottom:1px solid #3c7a66;font-size:10px;letter-spacing:.06em;color:#9fd1bd}
+#d .board .r{display:grid;grid-template-columns:60px 1fr 70px;padding:7px 10px;border-bottom:1px solid #2a6652}
+#d .board .r.now{background:#F2C14E;color:#111}
+#d .stamp{position:absolute;right:26px;top:262px;transform:rotate(-12deg);border:3px solid #D7261E;color:#D7261E;font:800 22px 'Archivo';font-stretch:75%;padding:4px 10px;letter-spacing:.06em;opacity:.9}
+#d .grid{display:grid;grid-template-columns:1fr 1fr;margin:14px 18px 0;border-top:2px solid #111;border-left:2px solid #111}
+#d .grid div{border-right:2px solid #111;border-bottom:2px solid #111;padding:12px;font-weight:800;font-stretch:75%;text-transform:uppercase;font-size:17px}
+#d .grid small{display:block;font:400 10px 'IBM Plex Mono';text-transform:none;margin-top:4px;color:#555}
+#d .nav{border-top:2px solid #111;font:600 10px 'IBM Plex Mono';text-transform:uppercase}
+#d .nav b{background:#111;color:#fff;padding:4px 6px}
+</style></head><body>
+
+<!-- A -->
+<div class="phone" id="a">
+  <div class="mast">
+    <small><span>Ausgabe Nr. 1</span><span>Heidelberg</span><span>13. Juni 2027</span></small>
+    <h1>Lena <span>&amp;</span> Jonas</h1>
+    <p>Die Hochzeitszeitung · persönliche Ausgabe für Anna</p>
+  </div>
+  <div class="ticker">+++ JETZT LIVE: ERÖFFNUNGSTANZ +++ DANACH: TORTE +++</div>
+  <div class="cols">
+    <div><h2>Hallo Anna!</h2><p class="lead">Du hast für alle vier Termine zugesagt. Die Redaktion freut sich.</p><span class="btn">Zusage ändern</span></div>
+    <div><div class="kl">Countdown</div><div class="big">250</div><div class="kl">Tage bis zum Ja</div></div>
+  </div>
+  <div class="res">
+    <div>Fotos <i>S. 2</i></div><div>Gästebuch <i>S. 3</i></div>
+    <div>Geschenke <i>S. 4</i></div><div>Mein Platz <i>S. 5</i></div>
+  </div>
+  <div class="nav"><b>Titel</b><span>Ablauf</span><span>Fotos</span><span>Gästebuch</span><span>Mehr</span></div>
+</div>
+
+<!-- B -->
+<div class="phone" id="b">
+  <div class="top"><div class="date">13.06.2027<br>Heidelberg</div><div class="date" style="text-align:right">noch<br>250 Tage</div></div>
+  <div class="polas">
+    <div class="pola p1"><div class="tape"></div><div class="img"></div><span>Lena</span></div>
+    <div class="pola p2"><div class="img"></div><span>Jonas</span></div>
+  </div>
+  <h1>Hallo Anna!</h1>
+  <div class="live"><i></i>JETZT: ERÖFFNUNGSTANZ · 22:00</div>
+  <div class="rsvp"><div><b>Du bist dabei</b><br><span style="font-size:13px">alle 4 Termine</span></div><span class="stamp">zugesagt!</span></div>
+  <div class="tiles"><div>Foto machen <small>→</small></div><div>Gästebuch <small>→</small></div><div>Geschenke <small>→</small></div><div>Mein Platz <small>T3</small></div></div>
+  <div class="nav"><b>Start</b><span>Ablauf</span><span>Fotos</span><span>Gästebuch</span><span>Mehr</span></div>
+</div>
+
+<!-- C -->
+<div class="phone" id="c">
+  <div class="hero">
+    <small>13. Juni 2027 · Heidelberg</small>
+    <svg class="dots" viewBox="0 0 90 90"><circle cx="20" cy="18" r="9" fill="#FFE27A"/><rect x="52" y="8" width="16" height="16" fill="#2D3FE0" transform="rotate(20 60 16)"/><circle cx="70" cy="58" r="12" fill="#7BE0AD"/><rect x="18" y="52" width="22" height="9" fill="#FFF4E8" transform="rotate(-25 29 56)"/></svg>
+    <h1>Lena<br>+ Jonas<br><em>heiraten!</em></h1>
+  </div>
+  <div class="sheet">
+    <div style="font-weight:800;font-size:26px;margin-bottom:12px">Hey Anna!</div>
+    <div class="live">Eröffnungstanz <span>live</span></div>
+    <div class="row"><div class="ok">Du kommst!<small>alle 4 Termine · + Tom</small></div><div class="cd"><b>250</b>Tage</div></div>
+    <div class="chips"><span>Foto machen</span><span>Gästebuch</span><span>Geschenke</span><span>Mein Platz</span><span>Ablauf</span></div>
+  </div>
+  <div class="nav"><b>Start</b><span>Ablauf</span><span>Fotos</span><span>Buch</span><span>Mehr</span></div>
+</div>
+
+<!-- D -->
+<div class="phone" id="d">
+  <div class="head">
+    <div><small>Aufgebot · Standesamt Heidelberg</small><h1>Lena Berger<br>&amp; Jonas Schulz</h1></div>
+    <div class="reg">Nr.<b>0613</b>2027</div>
+  </div>
+  <div class="field"><label>Gast</label><div>Anna Berger, Trauzeugin</div></div>
+  <div class="field"><label>Termin</label><div>Sa, 13.06.2027 · 11:00</div></div>
+  <div class="field"><label>Rückmeldung</label><div>4 von 4 Terminen</div></div>
+  <div class="stamp">ZUGESAGT</div>
+  <div class="board">
+    <div class="h"><span>ZEIT</span><span>PROGRAMMPUNKT</span><span>ORT</span></div>
+    <div class="r"><span>21:30</span><span>Torte</span><span>Saal</span></div>
+    <div class="r now"><span>22:00</span><span>Eröffnungstanz</span><span>JETZT</span></div>
+    <div class="r"><span>22:10</span><span>Party mit DJ Eike</span><span>Saal</span></div>
+  </div>
+  <div class="grid"><div>Fotos<small>17 im Album</small></div><div>Gästebuch<small>Video · Audio · Text</small></div><div>Geschenke<small>Kasse 30 %</small></div><div>Mein Platz<small>Tisch 3</small></div></div>
+  <div class="nav"><b>Start</b><span>Ablauf</span><span>Fotos</span><span>Buch</span><span>Mehr</span></div>
+</div>
+</body></html>

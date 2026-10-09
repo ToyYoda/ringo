@@ -1,0 +1,11 @@
+{$DOMAIN} {
+	encode zstd gzip
+	# Uploads (Videos) dürfen groß sein
+	request_body {
+		max_size 100MB
+	}
+	reverse_proxy app:3000 {
+		# Server-Sent Events (Live-Ablauf, Fotowand) nicht puffern
+		flush_interval -1
+	}
+}

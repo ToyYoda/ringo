@@ -1,0 +1,201 @@
+/*
+ * Ringo skin "Atelier" – quiet, editorial wedding-planner look:
+ * white space, Cormorant Garamond in spaced capitals, small spaced sans labels, olive-grey ink, hairlines, ✧ ornaments.
+ * Applies to the platform pages via <html data-skin="atelier"> and to the guest pages as design template data-theme="atelier".
+ * app.css stays untouched, so the guest template "Klassisch" keeps its exact look.
+ */
+@import url('/fonts/themes-fonts.css');
+
+:is([data-skin="atelier"], [data-theme="atelier"]) {
+  --ivory: #FFFFFF; --paper: #FFFFFF; --ink: #4D504A; --muted: #84847C; --line: #E6E5DF; --line-strong: #AFAFA5;
+  --burgundy: #4D504A; --burgundy-dark: #33352F; --burgundy-soft: #EFEEE8; --gold: #A0927A; --gold-soft: #F4F1EA; --soft-ink: #4D504A;
+  --accent-2: #84847C; --green: #5F7A5A; --green-soft: #E8EEE4; --red: #9A4A3C; --red-soft: #F5E6E1;
+  --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Jost', system-ui, sans-serif; --display: 'Cormorant Garamond', Georgia, serif;
+  --script: 'Cormorant Garamond', Georgia, serif;
+  --heading-case: uppercase; --heading-spacing: .18em;
+  --radius: 2px; --radius-sm: 2px; --btn-radius: 2px;
+  --shadow: none; --card-border: 1px solid var(--line); --card-shadow: none;
+  --field-bg: #FFFFFF; --surface-alt: #F6F5F1; --progress-bg: #EFEEE8; --nav-bg: rgba(255, 255, 255, .97); --modal-bg: #FFFFFF;
+  --tl-bg: #FFFFFF; --tl-now: #F6F5F1; --tl-radius: 2px; --live-bg: #4D504A; --live-fg: #FFFFFF; --photo-radius: 0;
+}
+:is([data-skin="atelier"], [data-theme="atelier"]) body { font-weight: 300; letter-spacing: .01em; }
+:is([data-skin="atelier"], [data-theme="atelier"]) b, :is([data-skin="atelier"], [data-theme="atelier"]) strong { font-weight: 500; }
+:is([data-skin="atelier"], [data-theme="atelier"]) :focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- Type ---------- */
+:is([data-skin="atelier"], [data-theme="atelier"]) :is(h1, h2, h3) { font-weight: 500; line-height: 1.25; }
+:is([data-skin="atelier"], [data-theme="atelier"]) h1 { font-size: clamp(26px, 5vw, 40px); }
+:is([data-skin="atelier"], [data-theme="atelier"]) h2 { font-size: 26px; }
+:is([data-skin="atelier"], [data-theme="atelier"]) h3 { font-size: 18px; letter-spacing: .14em; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .script { font-weight: 500; text-transform: uppercase; letter-spacing: .16em; }
+:is([data-skin="atelier"], [data-theme="atelier"]) a:not(.btn) { color: var(--ink); text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .section-title {
+  font: 500 11px var(--sans); letter-spacing: .26em; color: var(--muted); display: flex; align-items: center; gap: 14px; margin: 30px 0 12px;
+}
+:is([data-skin="atelier"], [data-theme="atelier"]) .section-title::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .stat b { font-weight: 500; color: var(--ink); font-size: 34px; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .stat span,
+:is([data-skin="atelier"], [data-theme="atelier"]) label.field > span,
+:is([data-skin="atelier"], [data-theme="atelier"]) table.data th { font: 500 10.5px var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+:is([data-skin="atelier"], [data-theme="atelier"]) label.field > span { margin-bottom: 6px; }
+
+/* Ornament: hairline with a ✧ in the middle – <div class="ornament" aria-hidden="true">✧</div> */
+.ornament { display: flex; align-items: center; gap: 16px; color: #AFAFA5; margin: 22px auto; max-width: 360px; font: 400 14px/1 'Cormorant Garamond', serif; }
+.ornament::before, .ornament::after { content: ''; flex: 1; height: 1px; background: currentColor; opacity: .7; }
+
+/* ---------- Building blocks ---------- */
+/* hairline cards sit side by side in grids – the stacking gap of .card + .card would misalign them */
+:is([data-skin="atelier"], [data-theme="atelier"]) :is(.grid2, .grid3, .row, .seat-grid) > .card + .card { margin-top: 0; }
+:is([data-skin="atelier"], [data-theme="atelier"]) input:not([type]) {
+  width: 100%; font: 400 15px var(--sans); color: var(--ink); background: var(--field-bg); border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm); padding: 10px 12px; min-height: 44px;
+}
+:is([data-skin="atelier"], [data-theme="atelier"]) .card { padding: 22px; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .card.flat { border-color: var(--line); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .btn {
+  font: 500 11.5px var(--sans); letter-spacing: .2em; text-transform: uppercase; padding: 12px 26px; transition: background-color .2s, color .2s, box-shadow .2s;
+}
+:is([data-skin="atelier"], [data-theme="atelier"]) .btn:hover { filter: none; background: #69727D; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .btn.small { padding: 6px 14px; font-size: 10.5px; letter-spacing: .16em; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .btn.secondary { background: var(--surface-alt); color: var(--ink); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .btn.secondary:hover { background: var(--burgundy-soft); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .btn.outline { color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .btn.outline:hover { background: var(--ink); color: #fff; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .btn.ghost { color: var(--ink); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .btn.ghost:hover { background: var(--surface-alt); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .btn.danger { background: var(--red-soft); color: var(--red); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .btn.danger:hover { background: var(--red); color: #fff; }
+
+:is([data-skin="atelier"], [data-theme="atelier"]) :is(input[type=text], input[type=email], input[type=password], input[type=tel], input[type=number], input[type=date], input[type=datetime-local], input[type=time], input[type=search], input[type=url], select, textarea) {
+  border-width: 1px; font-weight: 400;
+}
+:is([data-skin="atelier"], [data-theme="atelier"]) :is(input, select, textarea):focus { border-color: var(--ink); box-shadow: 0 0 0 3px rgba(77, 80, 74, .08); }
+
+:is([data-skin="atelier"], [data-theme="atelier"]) .pill { font: 500 10.5px/1.7 var(--sans); letter-spacing: .12em; text-transform: uppercase; border-radius: 2px; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .pill.gray { background: var(--surface-alt); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .seg { border: 1px solid var(--line); background: #fff; padding: 3px; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .seg button { font: 500 11px var(--sans); letter-spacing: .16em; text-transform: uppercase; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .seg button.on { background: var(--ink); color: #fff; box-shadow: none; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .chip { border-width: 1px; font: 400 13px var(--sans); letter-spacing: .04em; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .chip.on { background: var(--ink); border-color: var(--ink); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .avatar { background: var(--surface-alt); color: var(--ink); font: 500 15px var(--serif); letter-spacing: .06em; border: 1px solid var(--line); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .progress { height: 3px; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .progress > div { background: var(--ink); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .banner { border-left: 2px solid var(--gold); border-radius: 0; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .banner.rose { border-left-color: var(--ink); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .banner.green { border-left-color: var(--green); }
+:is([data-skin="atelier"], [data-theme="atelier"]) table.data tr:hover td { background: #FAFAF7; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .spinner { border-width: 2px; border-color: var(--line); border-top-color: var(--ink); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .toast { background: var(--ink); border-radius: 2px; letter-spacing: .02em; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .toast.error { background: var(--red); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .modal { border-radius: 2px; box-shadow: 0 24px 70px rgba(40, 42, 37, .18); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .modal-back { background: rgba(40, 42, 37, .38); }
+@media (max-width: 560px) { :is([data-skin="atelier"], [data-theme="atelier"]) .modal { border-radius: 0; } }
+:is([data-skin="atelier"], [data-theme="atelier"]) .kbd { border-radius: 2px; }
+
+/* ---------- Guest app pieces ---------- */
+:is([data-skin="atelier"], [data-theme="atelier"]) .bottom-nav { border-top: 1px solid var(--line); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .bottom-nav a { font: 500 9.5px var(--sans); letter-spacing: .16em; text-transform: uppercase; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .bottom-nav a svg { stroke-width: 1.4; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .bottom-nav a.on { color: var(--ink); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .live-strip { font-weight: 400; letter-spacing: .03em; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .live-strip .dot { background: #fff; box-shadow: none; animation: atelierBlink 2s ease-in-out infinite; }
+@keyframes atelierBlink { 50% { opacity: .25; } }
+:is([data-skin="atelier"], [data-theme="atelier"]) .timeline .t { font: 500 17px var(--serif); color: var(--ink); letter-spacing: .04em; }
+:is([data-skin="atelier"], [data-theme="atelier"]) .timeline .c { border: 1px solid var(--line); border-left: 1px solid var(--line); }
+:is([data-skin="atelier"], [data-theme="atelier"]) .timeline li.now .c { border-color: var(--ink); }
+
+/* ---------- Admin ---------- */
+[data-skin="atelier"] .admin aside { border-right: 1px solid var(--line); padding: 26px 14px; }
+[data-skin="atelier"] .admin aside .brand { flex-direction: column; align-items: flex-start; padding: 0 12px 18px; border-bottom: 1px solid var(--line); margin-bottom: 6px; }
+[data-skin="atelier"] .admin aside .brand .small { font: 400 15px var(--serif); letter-spacing: .14em; text-transform: uppercase; margin-top: 6px; }
+[data-skin="atelier"] .admin aside nav a { border-radius: 0; font-weight: 400; color: var(--ink); border-left: 1px solid transparent; padding: 8px 12px; }
+[data-skin="atelier"] .admin aside nav a:hover { background: var(--surface-alt); }
+[data-skin="atelier"] .admin aside nav a.on { background: transparent; color: var(--ink); font-weight: 500; border-left-color: var(--ink); }
+[data-skin="atelier"] .admin aside nav a .count { background: var(--ink); border-radius: 2px; font-weight: 500; }
+[data-skin="atelier"] .admin aside nav .grp { color: var(--muted); font-weight: 500; letter-spacing: .26em; font-size: 10px; padding: 20px 12px 6px; }
+[data-skin="atelier"] .admin main { padding-top: 34px; }
+@media (max-width: 900px) { [data-skin="atelier"] .admin .topbar { background: rgba(255, 255, 255, .96); } }
+[data-skin="atelier"] .page-head { border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 24px; }
+[data-skin="atelier"] .page-head h1 { font-size: 30px; }
+[data-skin="atelier"] .page-head p { font-size: 14px; }
+[data-skin="atelier"] .seat-table { border: 1px solid var(--line); }
+[data-skin="atelier"] .seat-guest { background: var(--surface-alt); border-radius: 0; }
+[data-skin="atelier"] .theme-opt { border-width: 1px; border-radius: 2px; }
+[data-skin="atelier"] .theme-opt.on { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+[data-skin="atelier"] .theme-opt img { border-radius: 0; }
+[data-skin="atelier"] .theme-name { font: 500 15px var(--serif); letter-spacing: .12em; text-transform: uppercase; }
+[data-skin="atelier"] .theme-preview { color: var(--ink); }
+
+/* ---------- Landing page ---------- */
+[data-skin="atelier"] .lp-nav { padding-top: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+[data-skin="atelier"] .lp-nav nav { gap: 30px; }
+[data-skin="atelier"] .lp-nav nav a:not(.btn) { font: 500 11px var(--sans); letter-spacing: .22em; text-transform: uppercase; }
+[data-skin="atelier"] .lp-hero { background: #fff; padding: 64px 0 80px; }
+[data-skin="atelier"] .lp-hero-grid { gap: 64px; }
+[data-skin="atelier"] .lp-hero h1 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.2; letter-spacing: .16em; font-weight: 500; }
+[data-skin="atelier"] .lp-kicker { font: 500 11px var(--sans); letter-spacing: .28em; color: var(--muted); }
+[data-skin="atelier"] .lp-lead { font: 400 21px/1.55 var(--serif); color: var(--ink); }
+[data-skin="atelier"] .lp-hero .row { gap: 14px; margin-top: 26px; }
+[data-skin="atelier"] .lp-phone { background: #F6F5F1; border: 1px solid var(--line); border-radius: 0; padding: 14px; box-shadow: none; width: 270px; height: 530px; outline: 1px solid var(--line); outline-offset: 10px; }
+[data-skin="atelier"] .lp-phone-screen { border-radius: 0; background: #fff; border: 1px solid var(--line); }
+[data-skin="atelier"] .lp-mini-arc { clip-path: none; height: 150px; background: #fff; display: grid; place-items: center; border-bottom: 1px solid var(--line); }
+[data-skin="atelier"] .lp-mini-arc span { position: static; color: var(--ink); font-size: 20px; line-height: 1.3; letter-spacing: .2em; }
+[data-skin="atelier"] .lp-mini-body b { font: 500 16px var(--serif); letter-spacing: .1em; text-transform: uppercase; text-align: center; }
+[data-skin="atelier"] .lp-mini-live { background: var(--ink); border-radius: 0; font-size: 12px; letter-spacing: .04em; }
+[data-skin="atelier"] .lp-mini-live i { background: #fff; }
+[data-skin="atelier"] .lp-mini-tiles span { border: 1px solid var(--line); border-radius: 0; box-shadow: none; font-size: 11px; letter-spacing: .06em; }
+[data-skin="atelier"] .lp-section { padding: 80px 16px; }
+[data-skin="atelier"] .lp-section > h2 { font-size: clamp(22px, 3vw, 32px); letter-spacing: .2em; }
+[data-skin="atelier"] .lp-phases { gap: 0; border: 1px solid var(--line); margin-top: 34px; }
+[data-skin="atelier"] .lp-phases .card { border: 0; border-right: 1px solid var(--line); padding: 34px 30px; }
+[data-skin="atelier"] .lp-phases .card:last-child { border-right: 0; }
+@media (max-width: 860px) { [data-skin="atelier"] .lp-phases .card { border-right: 0; border-bottom: 1px solid var(--line); } [data-skin="atelier"] .lp-phases .card:last-child { border-bottom: 0; } }
+[data-skin="atelier"] .lp-phases ul, [data-skin="atelier"] .lp-prices ul { list-style: none; padding: 0; }
+[data-skin="atelier"] .lp-phases li, [data-skin="atelier"] .lp-prices li { padding-left: 22px; position: relative; }
+[data-skin="atelier"] .lp-phases li::before, [data-skin="atelier"] .lp-prices li::before { content: '✧'; position: absolute; left: 0; color: var(--gold); font-family: var(--serif); }
+[data-skin="atelier"] .lp-num { width: auto; height: auto; border-radius: 0; background: none; color: var(--gold); font: 500 40px/1 var(--serif); margin-bottom: 14px; }
+[data-skin="atelier"] .lp-band { background: #F6F5F1; color: var(--ink); padding: 70px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+[data-skin="atelier"] .lp-band h3 { color: var(--ink); }
+[data-skin="atelier"] .lp-band p { color: var(--muted); }
+[data-skin="atelier"] .lp-band .grid3 { gap: 40px; text-align: center; }
+[data-skin="atelier"] .lp-prices .card { padding: 36px 32px; text-align: center; }
+[data-skin="atelier"] .lp-prices ul { text-align: left; display: inline-block; }
+[data-skin="atelier"] .lp-price { font-weight: 500; color: var(--ink); font-size: 46px; letter-spacing: .04em; }
+[data-skin="atelier"] .lp-price small { letter-spacing: .2em; text-transform: uppercase; font-size: 11px; }
+[data-skin="atelier"] .lp-featured { outline: 1px solid var(--ink); outline-offset: 6px; }
+[data-skin="atelier"] #anmelden .card { padding: 34px 30px; }
+[data-skin="atelier"] .lp-foot { padding-top: 30px; }
+[data-skin="atelier"] .lp-foot .small { letter-spacing: .14em; text-transform: uppercase; font-size: 11px; }
+
+/* ================= Guest template header (built by public/js/themes.js) ================= */
+.th-atelier { text-align: center; padding: 30px 22px 4px; background: #fff; }
+.th-atelier .kick { font: 500 10px 'Jost', sans-serif; letter-spacing: .32em; text-transform: uppercase; color: #84847C; }
+.th-atelier .mast { font: 500 clamp(26px, 8.4vw, 36px)/1.3 'Cormorant Garamond', serif; letter-spacing: .2em; text-transform: uppercase; color: #4D504A; margin: 14px 0 0; }
+.th-atelier .mast span { display: block; font-size: .6em; color: #A0927A; letter-spacing: 0; margin: 2px 0; }
+.th-atelier.small { padding-top: 22px; }
+.th-atelier.small .mast { font-size: 20px; margin-top: 8px; }
+.th-atelier.small .mast span { display: inline; margin: 0 .55em 0 .2em; }
+.th-atelier .ornament { margin: 16px auto 0; max-width: 220px; }
+.th-atelier .motto { font: italic 500 17px 'Cormorant Garamond', serif; color: #84847C; margin-top: 12px; }
+.th-atelier .photo { margin: 22px -22px 0; height: 230px; }
+.th-atelier .photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.85); }
+.th-atelier .th-logo { display: flex; justify-content: center; margin: 12px 0 0; }
+.th-head.th-atelier ~ .th-title, .th-atelier + .th-title { text-align: center; }
+[data-theme="atelier"] .th-title h1 { font-size: clamp(22px, 6vw, 28px); }
+
+/* ================= Live wall ================= */
+[data-theme="atelier"] .wall-side { background: #FFFFFF; color: #4D504A; border-left: 1px solid #E6E5DF; padding: 30px 20px; }
+[data-theme="atelier"] .wall-side .names { font: 500 30px/1.3 'Cormorant Garamond', serif; letter-spacing: .18em; text-transform: uppercase; color: #4D504A; }
+[data-theme="atelier"] .wall-side .names span { color: #A0927A; font-size: 20px; letter-spacing: 0; }
+[data-theme="atelier"] .wall-motto { color: #84847C; opacity: 1; }
+[data-theme="atelier"] .wall-side .live { background: #F6F5F1; border-radius: 0; border: 1px solid #E6E5DF; }
+[data-theme="atelier"] .wall-side .live .k { color: #84847C; font: 500 10px 'Jost', sans-serif; letter-spacing: .26em; }
+[data-theme="atelier"] .wall-side .live .t { font-weight: 500; }
+[data-theme="atelier"] .wall-side .qr { border: 1px solid #E6E5DF; border-radius: 0; color: #4D504A; }
+[data-theme="atelier"] .wall-side .qr b { font: 500 16px 'Cormorant Garamond', serif; letter-spacing: .12em; text-transform: uppercase; }
+[data-theme="atelier"] .wall-side .count { color: #84847C; font-family: 'Jost', sans-serif; letter-spacing: .08em; }
+[data-theme="atelier"] .wall-main .new { background: #4D504A; border-radius: 0; font: 500 12px 'Jost', sans-serif; letter-spacing: .2em; text-transform: uppercase; }
+[data-theme="atelier"] .wall-btn { border-radius: 0; font-family: 'Jost', sans-serif; }
+[data-theme="atelier"] .qr-mini { border-radius: 0; color: #4D504A; font-family: 'Jost', sans-serif; }
+[data-theme="atelier"] #live-mini:not(:empty) { background: rgba(77, 80, 74, .86); border-radius: 0; }

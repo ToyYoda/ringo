@@ -1,0 +1,264 @@
+<title>Ringo Broschüre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: six A4 sheets in the "Atelier" look – white space, spaced capitals, olive ink, hairlines, ✧ ornaments.
+   On screen they flow as one column, in print each is one page. */
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --card: #ffffff;
+  --tint: #f6f5f1;
+  --ink: #4d504a;
+  --muted: #84847c;
+  --gold: #a0927a;
+  --line: #e6e5df;
+  --line-strong: #afafa5;
+  --display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --body: 'Jost', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: #ecebe6; color: var(--ink); font: 300 15px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+b, strong { font-weight: 500; }
+.sheets { display: grid; gap: 28px; padding-block: 28px; padding-inline: 16px; }
+.sheet {
+  position: relative; background: var(--paper); width: min(210mm, 100%); margin: 0 auto; overflow: hidden;
+  box-shadow: 0 1px 3px rgba(40, 42, 37, .06), 0 16px 44px rgba(40, 42, 37, .09);
+  padding: 50px clamp(20px, 6vw, 58px); display: flex; flex-direction: column; gap: 22px;
+}
+/* hairline frame like fine stationery */
+.sheet::before { content: ''; position: absolute; inset: 14px; border: 1px solid var(--line); pointer-events: none; }
+h1, h2, h3 { font-family: var(--display); font-weight: 500; line-height: 1.22; margin: 0; text-wrap: balance; color: var(--ink); text-transform: uppercase; }
+h1 { font-size: clamp(30px, 6vw, 44px); letter-spacing: .16em; }
+h2 { font-size: clamp(22px, 4vw, 28px); letter-spacing: .15em; }
+h3 { font-size: 16.5px; letter-spacing: .14em; }
+p { margin: 0; max-width: 62ch; }
+.kicker { font: 500 10.5px/1.4 var(--body); letter-spacing: .3em; text-transform: uppercase; color: var(--muted); }
+.lead { font: 400 19px/1.55 var(--display); color: var(--ink); }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.ornament { display: flex; align-items: center; gap: 16px; color: var(--line-strong); font: 400 14px/1 var(--display); width: 100%; max-width: 300px; margin: 0 auto; }
+.ornament::before, .ornament::after { content: ''; flex: 1; height: 1px; background: currentColor; opacity: .8; }
+ul.ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+ul.ticks li { padding-left: 22px; position: relative; }
+ul.ticks li::before { content: '✧'; position: absolute; left: 0; top: 0; color: var(--gold); font-family: var(--display); }
+
+/* Cover */
+.cover { text-align: center; align-items: center; padding-top: 52px; gap: 16px; }
+.cover .brand img { height: 64px; width: auto; display: block; margin: 0 auto; }
+.cover h1 { font-size: clamp(28px, 5vw, 38px); max-width: 22ch; }
+.cover .lead { max-width: 52ch; }
+.cover-grid { display: grid; gap: 26px; justify-items: center; width: 100%; }
+.cover-grid > * { min-width: 0; }
+.phone { border: 1px solid var(--line); padding: 9px; background: var(--tint); width: 178px; max-width: 100%; margin: 6px auto 0; outline: 1px solid var(--line); outline-offset: 7px; }
+.phone img { display: block; width: 100%; border: 1px solid var(--line); }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 520px; }
+.badge { border: 1px solid var(--line-strong); background: var(--card); padding: 4px 12px; font: 500 10px/1.6 var(--body); letter-spacing: .18em; text-transform: uppercase; }
+
+/* Cards & grids – hairline panels instead of floating cards */
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); border: 1px solid var(--line); }
+.cols > * { min-width: 0; }
+.cols > .card { border: 0; border-right: 1px solid var(--line); }
+.cols > .card:last-child { border-right: 0; }
+.cols.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cols.two > .card:nth-child(2n) { border-right: 0; }
+.cols.two > .card:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+.card { background: var(--card); padding: 22px; border: 1px solid var(--line); display: grid; gap: 8px; align-content: start; }
+.quote { font: italic 400 23px/1.4 var(--display); color: var(--ink); text-align: center; max-width: 46ch; margin: 0 auto; }
+.quote::before, .quote::after { content: '✧'; display: block; font-style: normal; font-size: 14px; color: var(--gold); margin: 4px 0; }
+.feature { display: grid; grid-template-columns: 200px 1fr; gap: 30px; align-items: center; }
+.feature.rev { grid-template-columns: 1fr 200px; }
+.feature.rev .shot { order: 2; }
+.feature > * { min-width: 0; }
+.shot img, .wide-shot img { display: block; width: 100%; border: 1px solid var(--line); padding: 6px; background: var(--tint); }
+.phase { display: flex; align-items: center; gap: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.phase b { font: 400 54px/1 var(--display); color: var(--gold); flex: none; font-variant-numeric: lining-nums; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); }
+.steps > div { background: var(--card); border-right: 1px solid var(--line); padding: 20px; display: grid; gap: 6px; align-content: start; }
+.steps > div:last-child { border-right: 0; }
+.steps .n { font: 400 38px/1 var(--display); color: var(--gold); font-variant-numeric: lining-nums; }
+.steps b { font: 500 15px var(--display); letter-spacing: .14em; text-transform: uppercase; }
+.giro { display: inline-flex; align-items: center; background: var(--tint); color: var(--ink); padding: 0 7px; font: 500 11px/1.8 var(--body); letter-spacing: .1em; text-transform: uppercase; }
+
+/* Prices */
+.prices { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.prices > * { min-width: 0; }
+.prices .card { text-align: center; justify-items: center; padding: 18px 22px; }
+.price { font: 500 46px/1 var(--display); font-variant-numeric: lining-nums; color: var(--ink); letter-spacing: .04em; }
+.price small { font: 500 10px var(--body); color: var(--muted); letter-spacing: .2em; text-transform: uppercase; }
+.premium { border-color: var(--ink); outline: 1px solid var(--ink); outline-offset: 4px; }
+table.cmp { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+table.cmp th, table.cmp td { padding: 5px 8px; border-bottom: 1px solid var(--line); text-align: left; }
+table.cmp th { font: 500 10px var(--body); color: var(--muted); text-transform: uppercase; letter-spacing: .22em; border-bottom-color: var(--line-strong); }
+table.cmp td:nth-child(n+2), table.cmp th:nth-child(n+2) { text-align: center; width: 92px; }
+.yes { color: var(--ink); font-weight: 500; }
+.table-wrap { overflow-x: auto; }
+.faq { display: grid; gap: 8px; align-content: start; padding: 16px 20px; }
+.faq p { line-height: 1.5; }
+.faq + .faq { border-left: 1px solid var(--line); }
+.faq b { display: block; }
+.contact { margin-top: auto; background: var(--ink); color: #fff; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 12px 30px; align-items: center; justify-content: space-between; }
+.contact h3 { color: #fff; }
+.contact .muted { color: rgba(255, 255, 255, .78); }
+.footer { display: flex; justify-content: space-between; font: 500 9.5px var(--body); letter-spacing: .24em; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; margin-top: auto; width: 100%; }
+
+@media (max-width: 640px) {
+  .feature, .feature.rev, .prices, .steps, .cols.two { grid-template-columns: 1fr; }
+  .steps > div, .cols > .card { border-right: 0; border-bottom: 1px solid var(--line); }
+  .faq + .faq { border-left: 0; border-top: 1px solid var(--line); }
+  .feature.rev .shot { order: 0; }
+  .shot { max-width: 260px; margin: 0 auto; }
+}
+@media print {
+  @page { size: A4; margin: 0; }
+  body { background: var(--paper); }
+  .sheets { display: block; padding: 0; }
+  .sheet { width: 210mm; height: 297mm; box-shadow: none; padding: 16mm 18mm 13mm; page-break-after: always; break-after: page; gap: 5mm; }
+  .sheet::before { inset: 6mm; }
+  .sheet:last-child { page-break-after: auto; break-after: auto; }
+  .sheet.cover { padding-top: 20mm; }
+  .table-wrap { overflow: visible; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+
+
+<main class="sheets">
+
+  <!-- 1 · Cover -->
+  <section class="sheet cover">
+    <div class="brand"><img src="{{svg:ringo-atelier}}" alt="Ringo"></div>
+    <p class="kicker">Ohne App · ohne Konto für Gäste · ohne Social Media</p>
+    <h1>Der private Raum eurer Hochzeit.</h1>
+    <div class="ornament" aria-hidden="true">✧</div>
+    <p class="lead">Einladen und Zusagen sammeln. Am Tag selbst alle Fotos eurer Gäste per QR-Code einfangen und live auf der Leinwand zeigen. Danach jede Erinnerung behalten – an einem Ort, nur für euch und eure Gäste.</p>
+    <div class="cover-grid">
+      <div class="phone"><img src="{{gast-start}}" alt="Startseite der Gäste-App im Design Atelier mit Namen, Datum und Titelbild"></div>
+      <div class="badges"><span class="badge">Persönlicher Link statt App</span><span class="badge">Fotos per QR-Code</span><span class="badge">Live-Fotowand</span><span class="badge">Video-Gästebuch</span><span class="badge">„Finde meine Fotos“</span><span class="badge">9 Designs zur Wahl</span></div>
+    </div>
+    <div class="footer"><span>Ringo · Broschüre für Brautpaare</span><span>1 / 6</span></div>
+  </section>
+
+  <!-- 2 · Why + guest steps -->
+  <section class="sheet">
+    <p class="kicker">Warum Ringo</p>
+    <h2>Eure Gäste machen hunderte Fotos. Wo landen sie?</h2>
+    <p class="lead">Verteilt auf achtzig Handys, in drei WhatsApp-Gruppen, ein paar auf Instagram – und die meisten seht ihr nie. Zusagen kommen per Sprachnachricht, die Frage nach dem Parkplatz zwanzigmal. Ringo bringt das an einen Ort, ohne dass irgendwer etwas installieren muss.</p>
+    <div class="cols">
+      <div class="card"><h3>Privat</h3><p class="muted">Nur eingeladene Gäste sehen eure Fotos. Kein öffentliches Profil, keine Werbung, keine Weitergabe an Dritte.</p></div>
+      <div class="card"><h3>Ohne App</h3><p class="muted">Läuft in jedem Handy-Browser – auch für die Großeltern. Kein Download, kein Passwort, kein Konto.</p></div>
+      <div class="card"><h3>Ergänzt WhatsApp</h3><p class="muted">Einladungen und Neuigkeiten verschickt ihr mit einem Tipp per WhatsApp. Eure Gruppe bleibt – das Chaos nicht.</p></div>
+    </div>
+    <p class="quote">Ein Link für die Gäste, ein QR-Code auf jedem Tisch – und alle Fotos des Abends liegen am nächsten Morgen in einem Album.</p>
+    <h3>So einfach ist es für eure Gäste</h3>
+    <div class="steps">
+      <div><span class="n">1</span><b>Link öffnen</b><span class="muted small">Jede und jeder bekommt einen persönlichen Link – per WhatsApp, E-Mail oder als QR-Code auf der Papiereinladung.</span></div>
+      <div><span class="n">2</span><b>Zusagen</b><span class="muted small">Ein Tipp pro Termin. Dazu Begleitung, Essenswunsch, Allergien, Übernachtung, Lieblingssong.</span></div>
+      <div><span class="n">3</span><b>Knipsen</b><span class="muted small">Am Tag den QR-Code auf dem Tisch scannen, Foto machen – fertig. Direkt im gemeinsamen Album.</span></div>
+    </div>
+    <div class="footer"><span>Ringo</span><span>2 / 6</span></div>
+  </section>
+
+  <!-- 3 · Before -->
+  <section class="sheet">
+    <div class="phase"><b>1</b><div><p class="kicker">Vorher</p><h2>Einladen ohne Reibung</h2></div></div>
+    <div class="feature">
+      <div class="shot"><img src="{{gast-zusage}}" alt="Zu- oder Absage pro Termin"></div>
+      <div style="display:grid;gap:12px">
+        <h3>Zusagen mit einem Tipp</h3>
+        <p class="muted">Standesamt, Trauung, Feier, Polterabend: Jeder Gast sieht nur die Termine, zu denen ihr ihn eingeladen habt, und sagt für jeden einzeln zu. Ihr seht sofort, wie viele Personen kommen, was gegessen wird, wer eine Allergie hat und wer ein Bett braucht – bereit für Location und Catering.</p>
+        <ul class="ticks small"><li>Gästeliste per Excel-Import, Einladung per WhatsApp, E-Mail oder Link</li><li>Infos, Anfahrt und FAQ – Fragen beantwortet die Seite selbst</li><li>Nachrichten an alle mit einem Klick</li></ul>
+      </div>
+    </div>
+    <div class="feature rev">
+      <div class="shot"><img src="{{gast-geschenke}}" alt="Hochzeitskasse mit Fortschritt"></div>
+      <div style="display:grid;gap:12px">
+        <h3>Geschenke ohne Doppelungen</h3>
+        <p class="muted">Wunschliste und Hochzeitskasse – gern als Reise in Etappen: „Abendessen am Strand, 120 €“. Gäste sagen zu, auch anonym, und überweisen direkt an euch. Ein <span class="giro">GiroCode</span> füllt die Überweisung in der Banking-App automatisch aus. Keine Gebühren, kein Zwischenhändler.</p>
+        <h3 style="margin-top:6px">Reden, Spiele, Überraschungen</h3>
+        <p class="muted">Gäste melden ihren Programmpunkt an, ihr bestätigt – nichts überschneidet sich. Überraschungen planen die Trauzeugen in ihrem eigenen Bereich, den ihr nicht seht.</p>
+      </div>
+    </div>
+    <div class="footer"><span>Ringo</span><span>3 / 6</span></div>
+  </section>
+
+  <!-- 4 · The day -->
+  <section class="sheet">
+    <div class="phase"><b>2</b><div><p class="kicker">Am Tag</p><h2>Jeder Moment, aus jedem Blickwinkel</h2></div></div>
+    <div class="wide-shot"><img src="{{fotowand}}" alt="Live-Fotowand mit Foto, aktuellem Programmpunkt und QR-Code"></div>
+    <p class="small muted" style="margin-top:-10px">Die Live-Fotowand auf Beamer oder Fernseher: Neue Fotos erscheinen sofort, dazu der aktuelle Programmpunkt und der QR-Code zum Mitmachen. Auf Knopfdruck zeigt die Ansicht „Nur Fotos“ die Bilder über den ganzen Bildschirm.</p>
+    <div class="cols two">
+      <div class="card"><h3>QR-Code auf jedem Tisch</h3><p class="muted small">Druckfertige Tischkarten mit Tischname. Scannen, fotografieren, hochladen – ohne App und ohne Konto. Fotos werden auf dem Handy verkleinert und laden auch über mobiles Netz schnell.</p></div>
+      <div class="card"><h3>Live-Ablauf</h3><p class="muted small">Alle sehen auf dem Handy, was gerade passiert und was als Nächstes kommt. Verschiebt sich etwas, tippen die Trauzeugen auf „Jetzt“.</p></div>
+      <div class="card"><h3>Video- &amp; Sprach-Gästebuch</h3><p class="muted small">Glückwünsche als Videobotschaft oder Sprachnachricht – direkt im Browser aufgenommen. Bewegender als jedes Buch.</p></div>
+      <div class="card"><h3>Mein Platz</h3><p class="muted small">Der Sitzplan-Assistent verteilt eure Gäste nach Gruppen und Regeln. Jeder Gast findet seinen Tisch und seine Tischnachbarn in der App.</p></div>
+    </div>
+    <div class="footer"><span>Ringo</span><span>4 / 6</span></div>
+  </section>
+
+  <!-- 5 · After + team -->
+  <section class="sheet">
+    <div class="phase"><b>3</b><div><p class="kicker">Danach</p><h2>Erinnerungen, die bleiben</h2></div></div>
+    <div class="feature">
+      <div class="shot"><img src="{{gast-fotos}}" alt="Gemeinsames Fotoalbum mit Funktion Fotos finden"></div>
+      <div style="display:grid;gap:12px">
+        <h3>„Finde meine Fotos“</h3>
+        <p class="muted">Ein Selfie genügt, und jeder Gast findet alle Fotos, auf denen er zu sehen ist. Die Erkennung läuft auf dem Handy – das Selfie wird nie hochgeladen.</p>
+        <h3 style="margin-top:6px">Alles in Originalqualität</h3>
+        <p class="muted">Fotos, Videos und Gästebuch-Aufnahmen als ein Download. Dazu ein druckfertiges <b>Fotobuch</b>: eure Favoriten zuerst, dann automatisch die schärfsten Bilder, ohne Fast-Duplikate.</p>
+        <h3 style="margin-top:6px">Persönliche Dankeskarten</h3>
+        <p class="muted">Eine druckfertige Karte pro Gast – mit einem Foto, auf dem dieser Gast zu sehen ist, sofern er die Fotosuche genutzt hat.</p>
+      </div>
+    </div>
+    <div class="feature rev">
+      <div class="shot"><img src="{{gast-team}}" alt="Team-Bereich für Trauzeugen"></div>
+      <div style="display:grid;gap:12px">
+        <p class="kicker">Für Trauzeugen &amp; Organisatoren</p>
+        <h3>Ein Bereich, den das Brautpaar nicht sieht</h3>
+        <ul class="ticks muted"><li>Überraschungen und Programm-Anfragen im Blick</li><li>Live-Steuerung für den großen Tag</li><li>Gäste reichen Geschichten über das Paar ein</li><li>Rede-Helfer: Gliederung oder erster Entwurf aus diesen Geschichten</li><li>Absprachen im Team</li></ul>
+      </div>
+    </div>
+    <div class="footer"><span>Ringo</span><span>5 / 6</span></div>
+  </section>
+
+  <!-- 6 · Privacy, prices, FAQ, contact -->
+  <section class="sheet">
+    <p class="kicker">Preise</p>
+    <h2>Einmal zahlen. Kein Abo.</h2>
+    <div class="prices">
+      <div class="card"><h3>Basis</h3><p class="price">0 €</p><p class="muted small">Für kleine Feiern und zum Ausprobieren.</p></div>
+      <div class="card premium"><h3>Premium</h3><p class="price">89 € <small>einmalig pro Hochzeit</small></p><p class="muted small">Alles, was den Tag besonders macht – ohne Grenzen.</p></div>
+    </div>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th>Funktion</th><th>Basis</th><th>Premium</th></tr></thead>
+        <tbody>
+          <tr><td>Einladungen mit persönlichem Link, Zusagen, Termine, Infos &amp; FAQ</td><td>bis 60</td><td class="yes">unbegrenzt</td></tr>
+          <tr><td>Fotos per QR-Code</td><td>100 Fotos</td><td class="yes">unbegrenzt + Videos</td></tr>
+          <tr><td>Geschenkeliste &amp; Hochzeitskasse mit GiroCode, Text-Gästebuch, Tischkarten</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>9 Designs zur Wahl und euer eigenes Logo</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>Live-Fotowand, Video- &amp; Sprach-Gästebuch</td><td>–</td><td class="yes">✓</td></tr>
+          <tr><td>„Finde meine Fotos“, Sitzplan-Assistent, Fotobuch-PDF</td><td>–</td><td class="yes">✓</td></tr>
+          <tr><td>Assistent für Gästefragen &amp; Rede-Helfer</td><td>–</td><td class="yes">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cols">
+      <div class="faq">
+        <h3>Häufige Fragen</h3>
+        <p><b>Brauchen Gäste ein Smartphone?</b><span class="muted small">Für Fotos ja, für die Zusage nicht – ihr könnt Antworten auch selbst eintragen.</span></p>
+        <p><b>Was, wenn es kein WLAN gibt?</b><span class="muted small">Fotos werden vorher verkleinert und laden über mobiles Internet zügig.</span></p>
+        <p><b>Wem gehören die Fotos?</b><span class="muted small">Euch und euren Gästen. Ihr ladet alles herunter und könnt die Hochzeit danach vollständig löschen.</span></p>
+      </div>
+      <div class="faq">
+        <h3>Datenschutz</h3>
+        <p class="muted small">Keine Tracker, keine Werbung, keine externen Dienste nötig. Gäste können eigene Fotos jederzeit löschen. Die Gesichtssuche ist freiwillig und läuft auf dem Gerät des Gastes. Betrieb auf Servern in Deutschland oder auf einem eigenen Server möglich.</p>
+      </div>
+    </div>
+    <div class="contact">
+      <div><h3>Jetzt kostenlos starten</h3><p class="muted small">Registrieren, Termine anlegen, die ersten Gäste einladen – in zehn Minuten.</p></div>
+      <div class="small" style="text-align:right">[Ihre Web-Adresse]<br>[E-Mail · Telefon]</div>
+    </div>
+    <div class="footer"><span>Ringo · Alle Preise inkl. MwSt. · Screenshots zeigen eine Demo-Hochzeit</span><span>6 / 6</span></div>
+  </section>
+</main>

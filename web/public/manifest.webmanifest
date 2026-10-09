@@ -1,0 +1,9 @@
+{
+  "name": "Unsere Hochzeit",
+  "short_name": "Hochzeit",
+  "start_url": "/gast",
+  "display": "standalone",
+  "background_color": "#fbf7f4",
+  "theme_color": "#8e3b5a",
+  "icons": [{ "src": "/img/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

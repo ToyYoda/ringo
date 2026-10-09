@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.HochzeitsApp" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">#FFFBF7F4</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowBackground">@color/ivory</item>
+    </style>
+</resources>

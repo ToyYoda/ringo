@@ -1,0 +1,29 @@
+# Start: docker compose up -d   (vorher .env aus .env.example anlegen)
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ringo-data:/data
+    expose:
+      - "3000"
+
+  # HTTPS mit automatischem Let's-Encrypt-Zertifikat. DOMAIN in .env setzen.
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - DOMAIN=${DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+    depends_on:
+      - app
+
+volumes:
+  ringo-data:
+  caddy-data:

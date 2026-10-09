@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Josefin+Sans:wght@300;400;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500;1,6..96,700&family=Jost:wght@300;400;500&family=Young+Serif&family=Outfit:wght@300;400;600&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff}
+.phone{width:390px;height:844px;overflow:hidden;position:relative}
+.nav{position:absolute;left:0;right:0;bottom:0;height:70px;display:flex;justify-content:space-around;align-items:center}
+
+/* ===== E · Ballnacht (Art déco) ===== */
+#e{background:#0F3B33;color:#F1E3C2;font-family:'Josefin Sans',sans-serif}
+#e .frame{position:absolute;inset:14px 14px 84px;border:1px solid #C9A86A}
+#e .frame::before{content:'';position:absolute;inset:6px;border:1px solid rgba(201,168,106,.45)}
+#e .fan{display:block;margin:34px auto 0;width:150px}
+#e .names{text-align:center;font:400 40px/1.05 'Marcellus SC',serif;letter-spacing:.06em;margin-top:6px}
+#e .names span{display:block;font:300 13px 'Josefin Sans';letter-spacing:.5em;color:#C9A86A;margin:6px 0}
+#e .date{text-align:center;font:400 12px 'Josefin Sans';letter-spacing:.4em;text-transform:uppercase;margin-top:12px;color:#C9A86A}
+#e .rule{display:flex;align-items:center;gap:10px;margin:18px 40px;color:#C9A86A}
+#e .rule::before,#e .rule::after{content:'';flex:1;height:1px;background:#C9A86A}
+#e .hello{text-align:center;font:400 22px 'Marcellus SC';letter-spacing:.08em}
+#e .live{margin:16px 34px 0;border:1px solid #C9A86A;padding:12px 14px;text-align:center}
+#e .live small{display:block;font:600 10px 'Josefin Sans';letter-spacing:.4em;color:#C9A86A}
+#e .live b{font:400 20px 'Marcellus SC';letter-spacing:.06em}
+#e .two{display:grid;grid-template-columns:1fr 1fr;margin:12px 34px 0;border:1px solid #C9A86A}
+#e .two div{padding:10px;text-align:center;font-size:12px;letter-spacing:.15em;text-transform:uppercase}
+#e .two div+div{border-left:1px solid #C9A86A}
+#e .two b{display:block;font:400 30px 'Marcellus SC';letter-spacing:0;color:#F1E3C2;text-transform:none}
+#e .menu{margin:16px 34px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;font:400 13px 'Josefin Sans';letter-spacing:.25em;text-transform:uppercase}
+#e .menu span::before{content:'◆ ';color:#C9A86A;font-size:9px}
+#e .nav{background:#0B2E28;border-top:1px solid #C9A86A;font:400 10px 'Josefin Sans';letter-spacing:.2em;text-transform:uppercase;color:#C9A86A}
+#e .nav b{color:#F1E3C2;font-weight:600}
+
+/* ===== F · Wunderkerzen ===== */
+#f{background:#131A3A;color:#FBF3E6;font-family:'Jost',sans-serif}
+#f svg.sky{position:absolute;inset:0 0 auto 0;width:390px;height:330px}
+#f .names{position:absolute;top:96px;left:0;right:0;text-align:center;font:italic 700 58px/0.95 'Bodoni Moda',serif;letter-spacing:-1px}
+#f .names em{display:block;font:italic 500 26px 'Bodoni Moda';color:#F5C870;margin:4px 0}
+#f .date{position:absolute;top:268px;left:0;right:0;text-align:center;font:400 13px 'Jost';letter-spacing:.35em;text-transform:uppercase;color:#F5C870}
+#f .body{position:absolute;top:322px;left:0;right:0;padding:0 24px}
+#f .hello{font:italic 500 28px 'Bodoni Moda'}
+#f .live{margin-top:12px;background:#F5C870;color:#131A3A;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;font-weight:500}
+#f .live span{font:400 11px 'Jost';letter-spacing:.2em;text-transform:uppercase}
+#f .line{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(251,243,230,.25);padding:13px 0;font-size:15px}
+#f .line i{font:italic 500 18px 'Bodoni Moda';color:#F5C870;font-style:italic}
+#f .line b{font:italic 700 34px/1 'Bodoni Moda';color:#F5C870}
+#f .nav{border-top:1px solid rgba(245,200,112,.4);font:400 11px 'Jost';letter-spacing:.15em;text-transform:uppercase;color:rgba(251,243,230,.7)}
+#f .nav b{color:#F5C870;font-weight:500}
+
+/* ===== G · Blütenmeer ===== */
+#g{background:#F6E9E7;color:#2B3A2F;font-family:'Outfit',sans-serif}
+#g svg.flora{position:absolute;left:0;top:0;width:390px;height:300px}
+#g .names{position:absolute;top:118px;left:0;right:0;text-align:center;font:400 46px/1 'Young Serif',serif;color:#2B3A2F}
+#g .names span{font:300 16px 'Outfit';display:block;letter-spacing:.3em;text-transform:uppercase;margin:8px 0;color:#B04A5A}
+#g .body{position:absolute;top:300px;left:0;right:0;padding:0 22px}
+#g .card{background:#FFFDFB;padding:16px;border-top:4px solid #B04A5A}
+#g .hello{font:400 26px 'Young Serif'}
+#g .live{margin-top:10px;display:flex;align-items:center;gap:10px;font-weight:600;color:#B04A5A}
+#g .live i{width:9px;height:9px;border-radius:50%;background:#B04A5A}
+#g .ok{display:flex;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid #E8D3D0;font-size:14px}
+#g .ok b{font:400 32px/1 'Young Serif';color:#3E6B4E}
+#g .petals{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+#g .petals div{background:#3E6B4E;color:#F6E9E7;padding:14px 14px 14px 40px;font-weight:600;position:relative}
+#g .petals div:nth-child(2),#g .petals div:nth-child(3){background:#B04A5A}
+#g .petals svg{position:absolute;left:12px;top:13px;width:18px;height:18px}
+#g .nav{background:#FFFDFB;border-top:1px solid #E8D3D0;font:400 12px 'Outfit';color:#7A6A6A}
+#g .nav b{color:#B04A5A;font-weight:600}
+</style></head><body>
+
+<!-- E · Ballnacht -->
+<div class="phone" id="e">
+  <div class="frame"></div>
+  <svg class="fan" viewBox="0 0 150 70" fill="none" stroke="#C9A86A" stroke-width="1.2">
+    <path d="M75 68 A60 60 0 0 1 15 8"/><path d="M75 68 A60 60 0 0 0 135 8"/>
+    <path d="M75 68 L15 8 M75 68 L35 2 M75 68 L55 -2 M75 68 L75 -4 M75 68 L95 -2 M75 68 L115 2 M75 68 L135 8"/>
+    <path d="M75 68 A30 30 0 0 1 45 38 M75 68 A30 30 0 0 0 105 38"/>
+    <circle cx="75" cy="68" r="3" fill="#C9A86A"/>
+  </svg>
+  <div class="names">Lena<span>und</span>Jonas</div>
+  <div class="date">13 · Juni · 2027</div>
+  <div class="rule">◆</div>
+  <div class="hello">Willkommen, Anna</div>
+  <div class="live"><small>Auf dem Parkett</small><b>Der Eröffnungstanz</b></div>
+  <div class="two"><div><b>250</b>Tage</div><div><b>4 / 4</b>zugesagt</div></div>
+  <div class="menu"><span>Fotos</span><span>Gästebuch</span><span>Geschenke</span><span>Mein Platz</span></div>
+  <div class="nav"><b>Salon</b><span>Ablauf</span><span>Fotos</span><span>Buch</span><span>Mehr</span></div>
+</div>
+
+<!-- F · Wunderkerzen -->
+<div class="phone" id="f">
+  <svg class="sky" viewBox="0 0 390 330">
+    <g stroke="#F5C870" stroke-linecap="round">
+      <g stroke-width="1.4" opacity=".9">
+        <path d="M60 60 l-14 -10 M60 60 l-17 2 M60 60 l-10 14 M60 60 l4 -17 M60 60 l15 -8 M60 60 l16 6 M60 60 l6 16 M60 60 l-6 16"/>
+        <path d="M330 48 l-12 -9 M330 48 l-15 2 M330 48 l-9 12 M330 48 l3 -15 M330 48 l13 -7 M330 48 l14 5 M330 48 l5 14"/>
+      </g>
+      <g stroke-width="1" opacity=".6">
+        <path d="M300 250 l-9 -7 M300 250 l-11 1 M300 250 l-7 9 M300 250 l3 -11 M300 250 l10 -5 M300 250 l10 4 M300 250 l4 10"/>
+        <path d="M80 230 l-8 -6 M80 230 l-10 1 M80 230 l3 -10 M80 230 l9 -4 M80 230 l9 4"/>
+      </g>
+    </g>
+    <g fill="#F5C870">
+      <circle cx="36" cy="120" r="1.6"/><circle cx="120" cy="40" r="1.2"/><circle cx="210" cy="28" r="1.8"/><circle cx="268" cy="90" r="1.2"/><circle cx="352" cy="150" r="1.6"/><circle cx="24" cy="200" r="1.2"/><circle cx="356" cy="260" r="1.4"/><circle cx="160" cy="300" r="1"/><circle cx="240" cy="310" r="1.3"/><circle cx="110" cy="160" r=".9"/><circle cx="296" cy="190" r="1"/>
+    </g>
+  </svg>
+  <div class="names">Lena<em>&amp;</em>Jonas</div>
+  <div class="date">Samstag, 13. Juni 2027</div>
+  <div class="body">
+    <div class="hello">Schön, dass du da bist, Anna.</div>
+    <div class="live">Eröffnungstanz <span>Jetzt</span></div>
+    <div class="line"><span>Bis zum großen Tag</span><b>250</b></div>
+    <div class="line"><span>Deine Zusage</span><i>alle vier Termine</i></div>
+    <div class="line"><span>Fotos · Gästebuch · Geschenke</span><i>→</i></div>
+    <div class="line"><span>Mein Platz</span><i>Tisch der Brauteltern</i></div>
+  </div>
+  <div class="nav"><b>Start</b><span>Ablauf</span><span>Fotos</span><span>Buch</span><span>Mehr</span></div>
+</div>
+
+<!-- G · Blütenmeer -->
+<div class="phone" id="g">
+  <svg class="flora" viewBox="0 0 390 300" fill="none">
+    <g stroke="#3E6B4E" stroke-width="2" stroke-linecap="round">
+      <path d="M-10 110 C40 90 70 50 120 34"/><path d="M40 92 c-6 -18 4 -30 20 -34 c-2 16 -10 28 -20 34z" fill="#3E6B4E"/>
+      <path d="M78 60 c-2 -18 10 -28 26 -28 c-4 16 -14 26 -26 28z" fill="#5E8B6B"/>
+      <path d="M400 120 C350 96 320 62 268 44"/><path d="M346 102 c8 -16 -2 -30 -18 -36 c0 16 6 28 18 36z" fill="#3E6B4E"/>
+      <path d="M306 66 c4 -18 -6 -30 -22 -32 c2 16 10 26 22 32z" fill="#5E8B6B"/>
+    </g>
+    <g>
+      <circle cx="130" cy="34" r="16" fill="#B04A5A"/><circle cx="130" cy="34" r="8" fill="#D9808D"/><circle cx="130" cy="34" r="3" fill="#F6E9E7"/>
+      <circle cx="258" cy="42" r="20" fill="#D9808D"/><circle cx="258" cy="42" r="10" fill="#B04A5A"/><circle cx="258" cy="42" r="3.5" fill="#F6E9E7"/>
+      <circle cx="20" cy="112" r="11" fill="#E9B8BF"/><circle cx="372" cy="118" r="13" fill="#B04A5A"/><circle cx="372" cy="118" r="5" fill="#E9B8BF"/>
+      <circle cx="196" cy="20" r="7" fill="#E9B8BF"/>
+    </g>
+  </svg>
+  <div class="names">Lena &amp; Jonas<span>13. Juni 2027 · Heidelberg</span></div>
+  <div class="body">
+    <div class="card">
+      <div class="hello">Hallo Anna!</div>
+      <div class="live"><i></i>Jetzt: Eröffnungstanz</div>
+      <div class="ok"><span>Du bist bei allen vier<br>Terminen dabei</span><span style="text-align:right"><b>250</b><br>Tage</span></div>
+    </div>
+    <div class="petals">
+      <div><svg viewBox="0 0 20 20" fill="#F6E9E7"><circle cx="10" cy="10" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="10" cy="17" r="3"/><circle cx="3" cy="10" r="3"/><circle cx="17" cy="10" r="3"/></svg>Fotos</div>
+      <div><svg viewBox="0 0 20 20" fill="#F6E9E7"><circle cx="10" cy="10" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="10" cy="17" r="3"/><circle cx="3" cy="10" r="3"/><circle cx="17" cy="10" r="3"/></svg>Gästebuch</div>
+      <div><svg viewBox="0 0 20 20" fill="#F6E9E7"><circle cx="10" cy="10" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="10" cy="17" r="3"/><circle cx="3" cy="10" r="3"/><circle cx="17" cy="10" r="3"/></svg>Geschenke</div>
+      <div><svg viewBox="0 0 20 20" fill="#F6E9E7"><circle cx="10" cy="10" r="4"/><circle cx="10" cy="3" r="3"/><circle cx="10" cy="17" r="3"/><circle cx="3" cy="10" r="3"/><circle cx="17" cy="10" r="3"/></svg>Mein Platz</div>
+    </div>
+  </div>
+  <div class="nav"><b>Start</b><span>Ablauf</span><span>Fotos</span><span>Buch</span><span>Mehr</span></div>
+</div>
+</body></html>
